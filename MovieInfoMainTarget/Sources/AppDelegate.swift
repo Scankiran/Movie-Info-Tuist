@@ -1,6 +1,4 @@
 import UIKit
-import MovieInfoTuistKit
-import MovieInfoTuistUI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,12 +10,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .white
+        let viewController = MainPageView()
+        viewController.view.backgroundColor = .darkGray
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
-        MovieInfoTuistKit.hello()
-        MovieInfoTuistUI.hello()
 
         return true
     }
