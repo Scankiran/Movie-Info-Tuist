@@ -6,6 +6,7 @@
 //
 
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let detailPageDependency: TargetDependency = .project(target: "DetailPageModule", path: .relativeToRoot("Modules/DetailPageModule"))
 

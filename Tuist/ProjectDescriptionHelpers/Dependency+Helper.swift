@@ -1,13 +1,18 @@
 //
-//  DependencyHelper.swift
+//  Dependency+Helper.swift
 //  ProjectDescriptionHelpers
 //
-//  Created by Said Çankıran on 18.09.2022.
+//  Created by Said Çankıran on 21.09.2022.
 //
 
 import Foundation
 import ProjectDescription
 
+extension Project {
+    
+
+    
+}
 
 public enum ExternalTargetDependency: String {
     case Moya
