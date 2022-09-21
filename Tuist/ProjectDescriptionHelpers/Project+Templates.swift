@@ -4,6 +4,7 @@ import ProjectDescription
 /// Share code to create targets, settings, dependencies,
 /// Create your own conventions, e.g: a func that makes sure all shared targets are "static frameworks"
 /// See https://docs.tuist.io/guides/helpers/
+///
 
 extension Project {
     /// Helper function to create the Project for this ExampleApp

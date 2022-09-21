@@ -1,5 +1,5 @@
 import UIKit
-
+import MainPageModule
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
