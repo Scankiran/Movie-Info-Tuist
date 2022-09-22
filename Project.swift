@@ -9,6 +9,7 @@ import ProjectDescriptionHelpers
 let mainTargetDependencies: [TargetDependency] = [
         .project(target: "MainPageModule", path: .relativeToRoot("Modules/MainPageModule")),
         .project(target: "DetailPageModule", path: .relativeToRoot("Modules/DetailPageModule")),
+        .project(target: "SplashPageModule", path: "Modules/SplashPageModule"),
         .project(target: "NetworkKit", path: .relativeToRoot("Kits/NetworkKit")),
         .project(target: "AnimationKit", path: .relativeToRoot("Kits/AnimationKit"))
 ]

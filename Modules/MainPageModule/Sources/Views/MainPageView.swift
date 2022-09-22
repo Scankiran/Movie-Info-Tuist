@@ -18,16 +18,36 @@ public class MainPageView: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    let viewModel = MainPageViewModel()
+    var page: Int = 1
+    var dataSource: TVDataSource?
+    
+    @IBOutlet private weak var tableView: UITableView!
+    
     public override func viewDidLoad() {
-        print("MainPageView Loaded")
-        goToDetailPage()
+        bindViewModel()
+        loadTableView()
+        self.viewModel.getTopRatedMovies(page: self.page)
+        
     }
     
-    func goToDetailPage() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            let vc = DetailPageView.init()
-            self.present(vc, animated: true, completion: nil)
+    func bindViewModel() {
+        self.viewModel.sendUpdatedMovieData = { [weak self] movieData in
+            self?.dataSource?.updateDataSource(data: movieData)
+            self?.tableView.reloadData()
         }
     }
     
+}
+
+
+private extension MainPageView {
+    
+    func loadTableView() {
+        tableView.register(.init(nibName: "MovieSummaryCell", bundle: MainPageModuleResources.bundle), forCellReuseIdentifier: "MovieSummaryCell")
+        
+        dataSource = TVDataSource(data: [])
+        tableView.delegate = dataSource
+        tableView.dataSource = dataSource
+    }
 }

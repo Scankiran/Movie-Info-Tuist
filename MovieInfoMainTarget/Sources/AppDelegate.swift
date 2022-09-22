@@ -1,5 +1,7 @@
 import UIKit
+import SplashPageModule
 import MainPageModule
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -7,15 +9,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(
         _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = MainPageView()
-        viewController.view.backgroundColor = .darkGray
-        window?.rootViewController = viewController
-        window?.makeKeyAndVisible()
 
+        loadSplashPage()
         return true
     }
 
+}
+
+private extension AppDelegate {
+
+    func loadSplashPage() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let viewController = SplashPageView()
+        window?.rootViewController = viewController
+        window?.makeKeyAndVisible()
+    }
 }
