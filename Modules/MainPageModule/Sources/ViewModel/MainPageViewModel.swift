@@ -7,16 +7,19 @@
 
 import Foundation
 import NetworkKit
+import UIKit
+import DetailPageModule
 
 class MainPageViewModel {
 
     var sendUpdatedMovieData: (([Movie]) -> ())?
+    var showDetailPage: ((UIViewController) -> ())?
 
     init() { }
 
     var movieData: [Movie] = []
 
-    func getTopRatedMovies(page: Int) {
+    private func getTopRatedMovies(page: Int) {
 
         MovieService.shared.getTopRatedMovies(page: page) { [unowned self] movieData, err in
             if let err = err {
@@ -30,4 +33,15 @@ class MainPageViewModel {
         }
     }
     
+}
+
+extension MainPageViewModel: TVDataSourceOutputDelegate {
+    func fetchMovies(page: Int) {
+        self.getTopRatedMovies(page: page)
+    }
+    
+    
+    func showMovieDetail(movie: Movie) {
+        self.showDetailPage?(DetailPageView(movieData: movie))
+    }
 }

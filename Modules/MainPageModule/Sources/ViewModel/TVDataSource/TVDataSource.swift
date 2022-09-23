@@ -9,9 +9,21 @@ import Foundation
 import UIKit
 import NetworkKit
 
+protocol TVDataSourceOutputDelegate: AnyObject {
+    func showMovieDetail(movie: Movie)
+    func fetchMovies(page: Int)
+}
+
 class TVDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     
+    var page: Int = 1
     var data: [Movie]
+    weak var outputDelegate: TVDataSourceOutputDelegate? {
+        didSet {
+            self.outputDelegate?.fetchMovies(page: page)
+        }
+    }
+    
     
     init(data: [Movie]) {
         self.data = data
@@ -34,11 +46,13 @@ class TVDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.initializeView(data: data[indexPath.row])
+        
+        checkRow(row: indexPath.row)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("cell clicked.")
+        self.outputDelegate?.showMovieDetail(movie: data[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -46,4 +60,14 @@ class TVDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     
+}
+
+private extension TVDataSource {
+    
+    func checkRow(row: Int) {
+        if row == data.count - 4 {
+            self.page += 1
+            self.outputDelegate?.fetchMovies(page: self.page)
+        }
+    }
 }

@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import DetailPageModule
 
 public class MainPageView: UIViewController {
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -26,15 +25,17 @@ public class MainPageView: UIViewController {
     
     public override func viewDidLoad() {
         bindViewModel()
-        loadTableView()
-        self.viewModel.getTopRatedMovies(page: self.page)
-        
+        loadTableView()        
     }
     
     func bindViewModel() {
         self.viewModel.sendUpdatedMovieData = { [weak self] movieData in
             self?.dataSource?.updateDataSource(data: movieData)
             self?.tableView.reloadData()
+        }
+        
+        self.viewModel.showDetailPage = { [weak self] vc in
+            self?.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -47,6 +48,7 @@ private extension MainPageView {
         tableView.register(.init(nibName: "MovieSummaryCell", bundle: MainPageModuleResources.bundle), forCellReuseIdentifier: "MovieSummaryCell")
         
         dataSource = TVDataSource(data: [])
+        dataSource?.outputDelegate = self.viewModel
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
     }

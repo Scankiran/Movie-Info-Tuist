@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailPageView" customModule="DetailPageModule">
             <connections>
+                <outlet property="imageViewMoviePoster" destination="uMA-w4-INn" id="yTs-Gg-aWV"/>
+                <outlet property="labelMovieSummary" destination="wi7-qS-pTq" id="EWB-b2-MiD"/>
+                <outlet property="labelMovieTitle" destination="6Vm-co-vBV" id="Nh2-Ib-f6q"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jBW-xZ-Nyj"/>
             </connections>
         </placeholder>
@@ -18,17 +21,39 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deta'l Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Npt-YJ-k2a">
-                    <rect key="frame" x="186" y="438" width="87" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uMA-w4-INn">
+                    <rect key="frame" x="20" y="44" width="180" height="240"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="Qzn-k7-R5p"/>
+                        <constraint firstAttribute="height" constant="240" id="g94-f7-iWA"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wi7-qS-pTq">
+                    <rect key="frame" x="20" y="292" width="374" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vm-co-vBV">
+                    <rect key="frame" x="208" y="44" width="190" height="23"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="132" y="86"/>
+            <constraints>
+                <constraint firstItem="6Vm-co-vBV" firstAttribute="leading" secondItem="uMA-w4-INn" secondAttribute="trailing" constant="8" symbolic="YES" id="0Ku-g4-z9M"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wi7-qS-pTq" secondAttribute="trailing" constant="20" id="44w-wa-wVc"/>
+                <constraint firstItem="wi7-qS-pTq" firstAttribute="top" secondItem="uMA-w4-INn" secondAttribute="bottom" constant="8" symbolic="YES" id="CdM-O3-PTX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6Vm-co-vBV" secondAttribute="trailing" constant="16" id="Dms-lv-4He"/>
+                <constraint firstItem="uMA-w4-INn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="bMb-OC-8jQ"/>
+                <constraint firstItem="uMA-w4-INn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="gYj-VJ-b3O"/>
+                <constraint firstItem="6Vm-co-vBV" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="kPH-Uj-lb7"/>
+                <constraint firstItem="wi7-qS-pTq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="nLF-m2-5zM"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="85.714285714285708"/>
         </view>
     </objects>
     <resources>
