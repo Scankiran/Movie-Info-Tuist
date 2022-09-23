@@ -24,8 +24,8 @@ public class MovieService {
                 completion(nil, fetchError)
                 
             case .success(let response):
-                if let movieData = try? JSONDecoder().decode([Movie].self, from: response.data) {
-                    completion(movieData, nil)
+                if let movieData = try? JSONDecoder().decode(MovieResponse.self, from: response.data) {
+                    completion(movieData.results, nil)
                 } else {
                     completion(nil, nil)
                 }

@@ -2,5 +2,5 @@
 import Foundation
 
 public struct MovieResponse: Codable {
-  public let results: [Movie]
+    public let results: [Movie]
 }

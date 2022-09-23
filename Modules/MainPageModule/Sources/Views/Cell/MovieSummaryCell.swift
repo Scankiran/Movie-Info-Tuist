@@ -23,6 +23,15 @@ class MovieSummaryCell: UITableViewCell {
 
     func initializeView(data: Movie) {
         labelTitle.text = data.title
+        if let average = data.vote_avarage {
+            labelSummary.text = "⭐️ \(average)"
+            
+        }
+        ImageService.shared.loadImage(with: data.poster_path, to: imageViewPoster)
+    }
+    
+    override func prepareForReuse() {
+        imageViewPoster.image = nil
     }
     
 }

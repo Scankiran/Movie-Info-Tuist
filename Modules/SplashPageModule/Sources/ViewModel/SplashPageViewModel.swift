@@ -13,8 +13,8 @@ class SplashPageViewModel {
     
     func buildMainPage() -> UIViewController {
         let vc = MainPageView()
-        vc.modalPresentationStyle = .fullScreen
         let navigationController = UINavigationController(rootViewController: vc)
+        navigationController.modalPresentationStyle = .fullScreen
         return navigationController
     }
 }
