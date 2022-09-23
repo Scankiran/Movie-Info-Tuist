@@ -17,6 +17,7 @@ let networkKitDependency = TargetDependency
 let animationKitDependency = TargetDependency
     .project(target: "AnimationKit", path: .relativeToRoot("Kits/AnimationKit"))
 
+
 let mainPageTarget = Target(name: "MainPageModule",
                             platform: .iOS,
                             product: .staticFramework,

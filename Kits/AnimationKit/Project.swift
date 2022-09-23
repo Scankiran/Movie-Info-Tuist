@@ -18,6 +18,7 @@ let animationKitMainTarget: Target = .init(name: "AnimationKit",
                                            product: .staticFramework,
                                            bundleId: "com.cankiran.AnimationKit",
                                            sources: "Sources/**",
+                                           resources: "Resources/**",
                                            dependencies: animationKitDependency)
 
 let project = Project(name: "AnimationKit",

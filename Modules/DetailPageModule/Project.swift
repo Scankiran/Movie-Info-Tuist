@@ -7,11 +7,11 @@
 
 import ProjectDescription
 
-let networkKitDependency = TargetDependency
-    .project(target: "NetworkKit", path: .relativeToRoot("Kits/NetworkKit"))
-
 let animationKitDependency = TargetDependency
     .project(target: "AnimationKit", path: .relativeToRoot("Kits/AnimationKit"))
+
+let extensionKitDependency = TargetDependency
+    .project(target: "ExtensionKit", path: .relativeToRoot("Kits/ExtensionKit"))
 
 let detailPageTarget = Target(name: "DetailPageModule",
                               platform: .iOS,
@@ -20,7 +20,7 @@ let detailPageTarget = Target(name: "DetailPageModule",
                               sources: "Sources/**",
                               resources: "Resource/**",
                               dependencies: [
-                                networkKitDependency,
+                                extensionKitDependency,
                                 animationKitDependency
                               ]
 )
